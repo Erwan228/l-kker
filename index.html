@@ -7,15 +7,17 @@
     <title>Document</title>
     <style>
         body {
-            background-color: red;
+            background-color: #ba1208;
         }
     </style>
 </head>
 <body>
     <button onclick="forLøkkeFunkjsonIDK()">For-loop function idk</button>
     <div id="numbers"></div>
-    <button onclick="countVowels('Klokken er for mange')">Klokken er for mange</button>
+    <button onclick="countVowels('Klokken er for mange.')">Klokken er for mange.</button>
     <div id="vowels"></div>
+    <input type="text" id="inputTxt"><button onclick=reverseTexkten()>Reverser teksten</button>
+    <div id="reversertTekst"></div>
     <!--Arrow to direct you to the top of the page-->
     <a style="width: auto;
     position: fixed;
@@ -31,6 +33,17 @@
 </a>
 </body>
 <script>
+    let reverseTxtCont = '';
+    let fler;
+    let aCounter = 0;
+    let eCounter = 0;
+    let iCounter = 0;
+    let oCounter = 0;
+    let uCounter = 0;
+    let yCounter = 0;
+    let æCounter = 0;
+    let øCounter = 0;
+    let åCounter = 0;
     let txt;
     let vowelCounter2 = 0;
     let stopCounter = 20;
@@ -44,14 +57,57 @@
     //if ((counter % 2) !== 0) for hvert oddetall
 function countVowels(inputString){
     let vowelCounter = 0;
+    let aCounter2 = 0;
+    let eCounter2 = 0;
+    let iCounter2 = 0;
+    let oCounter2 = 0;
+    let uCounter2 = 0;
+    let yCounter2 = 0;
+    let æCounter2 = 0;
+    let øCounter2 = 0;
+    let åCounter2 = 0;
+
     for(let index = 0; index<= inputString.length; index++){
         if (inputString.charAt(index) == 'a' || inputString.charAt(index) == 'A' || inputString.charAt(index) == 'e' || inputString.charAt(index) == 'E' || inputString.charAt(index) == 'y' || inputString.charAt(index) == 'Y' || inputString.charAt(index) == 'u' || inputString.charAt(index) == 'U' || inputString.charAt(index) == 'i' || inputString.charAt(index) == 'I' || inputString.charAt(index) == 'o' || inputString.charAt(index) == 'O' || inputString.charAt(index) == 'å' || inputString.charAt(index) == 'Å' || inputString.charAt(index) == 'æ' || inputString.charAt(index) == 'Æ' || inputString.charAt(index) == 'ø' || inputString.charAt(index) == 'Ø'){
             vowelCounter++;
             console.log(vowelCounter)
         }
+        if(inputString.charAt(index) == 'a' || inputString.charAt(index) == 'A'){aCounter2++;};
+        if(inputString.charAt(index) == 'e' || inputString.charAt(index) == 'E'){eCounter2++;};
+        if(inputString.charAt(index) == 'i' || inputString.charAt(index) == 'I'){iCounter2++;};
+        if(inputString.charAt(index) == 'o' || inputString.charAt(index) == 'O'){oCounter2++;};
+        if(inputString.charAt(index) == 'u' || inputString.charAt(index) == 'U'){uCounter2++;};
+        if(inputString.charAt(index) == 'y' || inputString.charAt(index) == 'Y'){yCounter2++;};
+        if(inputString.charAt(index) == 'æ' || inputString.charAt(index) == 'Æ'){æCounter2++;};
+        if(inputString.charAt(index) == 'ø' || inputString.charAt(index) == 'Ø'){øCounter2++;};
+        if(inputString.charAt(index) == 'å' || inputString.charAt(index) == 'Å'){åCounter2++;};
     }
-    vowelCounter2 = vowelCounter
-    document.getElementById('vowels').innerHTML= vowelCounter2;
+
+    
+    aCounter = aCounter2;
+    eCounter = eCounter2;
+    iCounter = iCounter2;
+    oCounter = oCounter2;
+    uCounter = uCounter2;
+    yCounter = yCounter2;
+    æCounter = æCounter2;
+    øCounter = øCounter2;
+    åCounter = åCounter2;
+    vowelCounter2 = vowelCounter;
+    if (vowelCounter2 == 1){fler = ''}else{fler ='er'}
+    document.getElementById('vowels').innerHTML= /*HTML*/ `
+    Det er ${vowelCounter2} vokal${fler} i ${inputString}.
+    `
+    console.log(aCounter, eCounter, iCounter, oCounter, uCounter, yCounter, æCounter, øCounter, åCounter)
 }
+function reverseTexkten(){
+inputField = document.getElementById('inputTxt').value;
+    for(index = inputField.length; index >= 0; index--){
+        reverseTxtCont += inputField.charAt(index);
+    }
+    document.getElementById('reversertTekst').innerHTML = reverseTxtCont;
+}
+
+
 </script>
 </html>
