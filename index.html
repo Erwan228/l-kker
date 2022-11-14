@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="forLøkkeFunkjsonIDK()">For-loop function idk</button>
+    <div id="numbers"></div>
+    <button onclick="countVowels('Klokken er for mange')">Klokken er for mange</button>
+    <div id="vowels"></div>
+    <!--Arrow to direct you to the top of the page-->
+    <a style="width: auto;
+    position: fixed;
+    z-index: 1;
+    top: 93%;
+    left: 97%;
+    overflow-x: hidden;
+    background-color: rgba(238, 238, 238, 0.363);
+    border-radius: 10px;
+    padding-top: 2px;
+    user-select: none;" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">
+  &#x2191;
+</a>
+</body>
+<script>
+    let txt;
+    let vowelCounter2 = 0;
+    let stopCounter = 20;
+    function forLøkkeFunkjsonIDK(){
+        //Lage startvariabel og startverdi; sette betingelsene for hvor lenge løkken skal kjøre; hva skal skje med startvariablen
+        for(let counter = 1; counter <= stopCounter; counter++){
+            if((counter % 2) == 0){document.getElementById('numbers').innerHTML += '<li>' + counter + '</li>'}
+        }
+    }
+    //if ((counter % 2) == 0) for hvert partall
+    //if ((counter % 2) !== 0) for hvert oddetall
+function countVowels(inputString){
+    let vowelCounter = 0;
+    for(let index = 0; index<= inputString.length; index++){
+        if (inputString.charAt(index) == 'a' || inputString.charAt(index) == 'A' || inputString.charAt(index) == 'e' || inputString.charAt(index) == 'E' || inputString.charAt(index) == 'y' || inputString.charAt(index) == 'Y' || inputString.charAt(index) == 'u' || inputString.charAt(index) == 'U' || inputString.charAt(index) == 'i' || inputString.charAt(index) == 'I' || inputString.charAt(index) == 'o' || inputString.charAt(index) == 'O' || inputString.charAt(index) == 'å' || inputString.charAt(index) == 'Å' || inputString.charAt(index) == 'æ' || inputString.charAt(index) == 'Æ' || inputString.charAt(index) == 'ø' || inputString.charAt(index) == 'Ø'){
+            vowelCounter++;
+            console.log(vowelCounter)
+        }
+    }
+    vowelCounter2 = vowelCounter
+    document.getElementById('vowels').innerHTML= vowelCounter2;
+}
+</script>
+</html>
