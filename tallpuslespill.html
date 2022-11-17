@@ -6,8 +6,9 @@
     <style>
 body{
     user-select: none;
+    background-color: darkgray;
 }
-        div {
+        div :not(scree) {
             color: blue;
             background-color: azure;
             padding: 10px;
@@ -24,59 +25,91 @@ body{
     </style>
 </head>
 <body>
+
 <div id="scree"></div>
-
-    <div id="r1k1" onclick="trykk(this, 'r2k1', 'r1k2', '_', '_')">7</div>
-    <div id="r1k2" onclick="trykk(this, 'r1k1', 'r2k2','r1k3')">1</div>
-    <div id="r1k3" onclick="trykk(this, 'r1k2', 'r2k3')">2</div>
-    <div id="r2k1" class="førstPåLinja" onclick="trykk(this, 'r2k2', 'r1k1', 'r3k1')">5</div>
-    <div id="r2k2" onclick="trykk(this, 'r2k1','r1k2','r2k3','r3k2')"></div>
-    <div id="r2k3" onclick="trykk(this, 'r1k3','r2k2','r3k3')">3</div>
-    <div id="r3k1" class="førstPåLinja" onclick="trykk(this, 'r2k1','r3k2' )">8</div>
-    <div id="r3k2" onclick="trykk(this, 'r3k1', 'r2k2', 'r3k3')">4</div>
-    <div id="r3k3" onclick="trykk(this, 'r3k2', 'r2k3' )">6</div>
-    <script>
-
-        function trykk(tagElement, alt1, alt2, alt3, alt4) {
-            if (document.getElementById(alt1).innerHTML == '') {
-                document.getElementById(alt1).innerHTML = tagElement.innerHTML;
-                tagElement.innerHTML = '';
-
-            }
-            if (document.getElementById(alt2).innerHTML == '') {
-                document.getElementById(alt2).innerHTML = tagElement.innerHTML;
-                tagElement.innerHTML = '';
-            }
-
-            if (document.getElementById(alt3).innerHTML == '') {
-                document.getElementById(alt3).innerHTML = tagElement.innerHTML;
-                tagElement.innerHTML = '';
-            }
-            if (document.getElementById(alt4).innerHTML == '') {
-                document.getElementById(alt4).innerHTML = tagElement.innerHTML;
-                tagElement.innerHTML = '';
-            }
-        }
-
-    </script>
+   <!--  -->
 </body>
 <script>
     //Modell
-
+    
+    let alternativ1;
+    let alternativ2;
+    let alternativ3;
+    let alternativ4;
+    let alternativ5;
+    let alternativ6;
+    let alternativ7;
+    let alternativ8;
+    let alternativ9;
+    let appDiv;
+    let num = 2;
+    let square = '12345678 ';
     //View
+    updateView();
+    
     function updateView(){
-        document.getElementById('scree').innerHTML= /*HTML*/ `
-        <div id="r1k1" onclick="trykk(this, 'r2k1', 'r1k2', '_', '_')">7</div>
-        <div id="r1k2" onclick="trykk(this, 'r1k1', 'r2k2','r1k3')">1</div>
-        <div id="r1k3" onclick="trykk(this, 'r1k2', 'r2k3')">2</div>
-        <div id="r2k1" class="førstPåLinja" onclick="trykk(this, 'r2k2', 'r1k1', 'r3k1')">5</div>
-        <div id="r2k2" onclick="trykk(this, 'r2k1','r1k2','r2k3','r3k2')"></div>
-        <div id="r2k3" onclick="trykk(this, 'r1k3','r2k2','r3k3')">3</div>
-        <div id="r3k1" class="førstPåLinja" onclick="trykk(this, 'r2k1','r3k2' )">8</div>
-        <div id="r3k2" onclick="trykk(this, 'r3k1', 'r2k2', 'r3k3')">4</div>
-        <div id="r3k3" onclick="trykk(this, 'r3k2', 'r2k3' )">6</div>
-        `
+        let html = '';
+        appDiv = '';
+        for (let index = 0; index < square.length; index++) {
+                let number = square.charAt(index);
+                num = number;
+                appDiv +=/*HTML*/`
+                <div onclick="trykk(this)">${num}</div> `
+            //console.log(number);
+        }
+        document.getElementById('scree').innerHTML = appDiv;
+            
+            
+            /* 
+            console.log(num);
+            console.log(appDiv); 
+            console.log(square); */
+
+
     }
+
     //Controller
+randomSquare();
+    function randomSquare(min, max) {
+        return square= Math.floor((Math.random(min, max) * 9) + 1);
+        console.log(randomSquare(1, 9));
+        
+
+        
+    }
+    
+    function trykk(tagElement, alt1, alt2, alt3, alt4, alt5, alt6, alt7, alt8, alt9) {
+        alternativ1 = alt1;
+        alternativ2 = alt2;
+        alternativ3 = alt3;
+        alternativ4 = alt4;
+        alternativ5 = alt5;
+        alternativ6 = alt6;
+        alternativ7 = alt7;
+        alternativ8 = alt8;
+        alternativ9 = alt9;
+
+        // let tagElementvar = ${number};
+
+            if (alt1 == '') {
+                alt1 = tagElement;
+                tagElement= '';
+            }
+            if (alt2 == '') {
+                alt2 = tagElement;
+                tagElement= '';
+            }  if (alt3 == '') {
+                alt3 = tagElement;
+                tagElement= '';
+            }  if (alt4 == '') {
+                alt4 = tagElement;
+                tagElement= '';
+            }
+       
+            updateView();
+        } 
+
+   
+        
 </script>
 </html>
